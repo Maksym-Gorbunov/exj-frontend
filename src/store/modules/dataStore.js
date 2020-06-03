@@ -1,6 +1,6 @@
 /* eslint-disable */
 import axios from "axios";
-import usersStore from "./userStore";
+import userStore from "./userStore";
 /* eslint-enable */
 
 const state = {
