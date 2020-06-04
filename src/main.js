@@ -5,6 +5,10 @@ import store from "./store/store.js";
 
 Vue.config.productionTip = false
 
+const cors = require('cors')
+
+console.log(cors)
+
 new Vue({
   store,
   router,

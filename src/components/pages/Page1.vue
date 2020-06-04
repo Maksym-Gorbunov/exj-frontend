@@ -4,7 +4,11 @@
       <hr>
       <Table msg="msg from Page1"></Table>
       <hr>
-      <Table :msg=this.message></Table>
+      <Table :msg=this.messageProp1></Table>
+      <hr>
+      <Table :msg=this.m2></Table>
+      <hr>
+      <Table msg="dddd"></Table>
   </div>
 </template>
 
@@ -16,16 +20,17 @@ import Table from "../Table";
 export default {
   name: "Page1",
   components: {Table},
-  computed: mapGetters(["country"]),
-  props: ['message'],
+  computed: mapGetters(["country", "countries"]),
+  props: ['messageProp1', 'messageProp2', 'countriesProps'],
   data() {
       return {
-          //
+          m1:888,
+          m2:[]
       }
   },
   
   methods: {
-    ...mapActions(["testAction"]),
+    ...mapActions(["testAction", "getAllCountriesAction"]),
     hello() {
       console.log("hello(): TableComponent")
       console.log("hello():" + this.country.name);
@@ -34,15 +39,27 @@ export default {
       console.log("testBtn()")
       //this.testAction();
     },
-    getMsg() {
+    getMsg1() {
       //this.msg = this.country.name;
-      this.message = "777";
+      this.messageProp1 = 888888;
+    },
+    getMsg2() {
+      //this.m2 = 99999;
+      this.m2 = this.countries
+    },
+    getCountries(){
+      this.testAction();
+      this.getAllCountriesAction();
+      
+      //this.countriesProps = this.countries
     }
   },
 
   created() {
     this.hello();
-    this.getMsg();
+    this.getCountries();
+    this.getMsg1();
+    this.getMsg2();
   }
 };
 </script>
