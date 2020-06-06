@@ -1,11 +1,8 @@
 <template>
   <div id="countries">
     <h5>Countries component</h5>
-    <p>countriesProp: {{countriesProp}}</p>
-    <p>msg: {{msg}}</p>
-    <hr/>
     
-    <div v-for="country in countries" :key="country.name">
+    <div v-for="country in countriesProp" :key="country.name">
         <Country v-bind:countryProp="country" /> 
     </div> 
 

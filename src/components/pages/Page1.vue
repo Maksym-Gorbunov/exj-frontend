@@ -1,11 +1,17 @@
 <template>
   <div id="page1Component">
       <h1>Hello from Page1    </h1>
-      <button @click="fetchCountries">btn1</button>
-      <button @click=btn2()>btn2</button>
-      <button @click=init()>init</button>
-      <Countries />
-      <!--Countries :countriesProp=countries /-->
+      
+      <hr>
+      <button @click="shortView()" :disabled="detailed===false" >short</button>
+      <button @click="detailedView()" :disabled="detailed===true">detailed</button>
+
+      <hr>
+      <p>detailed: {{this.detailed}}</p>
+      <hr>
+
+      <!--Countries /-->
+      <Countries :countriesProp=countries />
 
 
       <hr>
@@ -28,23 +34,26 @@ export default {
       }
   },
   
-  computed: mapGetters(["countries"]),
+  computed: mapGetters(['countries', 'detailed']),
   methods: {
-    ...mapActions(["fetchCountries"]),
+    ...mapActions(
+      ['fetchCountries', 
+      'fetchCountriesDetailed']),
 
-    btn1() {
-      console.log('btn1')
+    shortView(){
       this.fetchCountries()
-      this.init()
+      this.$store.commit('setDetailed', false)
     },
-    btn2() {
-      console.log('btn2')
-      this.countriesData = [1,1,1]
+    detailedView(){
+      this.fetchCountriesDetailed()
+      this.$store.commit('setDetailed', true)
     },
     init(){
-      console.log('init')
-      this.countriesData = this.countries
-      //this.prop1 = this.countries
+      if(this.detailed){
+        this.fetchCountriesDetailed()
+      } else{
+        this.fetchCountries()
+      }
     }
   },
 
@@ -55,5 +64,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .active{
+    background:  rgb(107, 223, 126);
+    
+  }
 </style>
