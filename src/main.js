@@ -5,9 +5,9 @@ import store from "./store/store.js";
 
 Vue.config.productionTip = false
 
+/* eslint-disable */
 const cors = require('cors')
-
-console.log(cors)
+/* eslint-enable */
 
 new Vue({
   store,

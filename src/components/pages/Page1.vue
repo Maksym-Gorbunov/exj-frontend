@@ -1,65 +1,69 @@
 <template>
   <div id="page1">
-      <h1>Hello from Page1</h1>
+      <h1>Hello from Page1    </h1>
+      <i class="fas fa-adjust fa-2x"></i>
+      <!--
+        <i class="fas fa-camera fa-xs"></i>
+        <i class="fas fa-camera fa-xs"></i>
+        <i class="fas fa-camera fa-sm"></i>
+        <i class="fas fa-camera fa-lg"></i>
+        <i class="fas fa-camera fa-2x"></i>
+      -->
       <hr>
-      <Table msg="msg from Page1"></Table>
+      <!--Table msg="msg from Page1"></Table>
       <hr>
       <Table :msg=this.messageProp1></Table>
+      <hr-->
+      <Table msg="ddd"></Table>
       <hr>
-      <Table :msg=this.m2></Table>
+      <button @click="testBtn">click</button>
+      <button @click="testBtn2">reset</button>
       <hr>
-      <Table msg="dddd"></Table>
+      {{this.countries}}
   </div>
 </template>
+
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Table from "../Table";
 
-
 export default {
   name: "Page1",
   components: {Table},
   computed: mapGetters(["country", "countries"]),
-  props: ['messageProp1', 'messageProp2', 'countriesProps'],
+  props: ['messageProp1'],
   data() {
       return {
           m1:888,
-          m2:[]
+          m2:[333]
       }
   },
   
   methods: {
     ...mapActions(["testAction", "getAllCountriesAction"]),
+
     hello() {
-      console.log("hello(): TableComponent")
       console.log("hello():" + this.country.name);
     },
     testBtn() {
-      console.log("testBtn()")
-      //this.testAction();
-    },
-    getMsg1() {
-      //this.msg = this.country.name;
-      this.messageProp1 = 888888;
-    },
-    getMsg2() {
-      //this.m2 = 99999;
+      this.getAllCountriesAction();
+      console.log(this.countries)
       this.m2 = this.countries
     },
+    testBtn2() {
+      this.countries = null
+    },
     getCountries(){
-      this.testAction();
       this.getAllCountriesAction();
-      
-      //this.countriesProps = this.countries
+    },
+    setCountries(){
+      this.m2 = this.countries
     }
   },
 
   created() {
-    this.hello();
-    this.getCountries();
-    this.getMsg1();
-    this.getMsg2();
+    
   }
 };
 </script>
