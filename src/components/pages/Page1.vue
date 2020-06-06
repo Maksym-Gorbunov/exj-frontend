@@ -1,69 +1,68 @@
 <template>
   <div id="page1">
       <h1>Hello from Page1    </h1>
-      <i class="fas fa-adjust fa-2x"></i>
-      <!--
-        <i class="fas fa-camera fa-xs"></i>
-        <i class="fas fa-camera fa-xs"></i>
-        <i class="fas fa-camera fa-sm"></i>
-        <i class="fas fa-camera fa-lg"></i>
-        <i class="fas fa-camera fa-2x"></i>
-      -->
+      <button @click="fetchCountries">btn1</button>
+      <button @click=btn2()>btn2</button>
+      <button @click=init()>init</button>
+      <!--p>CountriesData: {{countriesData}}</p-->
       <hr>
-      <!--Table msg="msg from Page1"></Table>
+      <p>111</p>
+      {{prop1}}
+      
+      
       <hr>
-      <Table :msg=this.messageProp1></Table>
-      <hr-->
-      <Table msg="ddd"></Table>
+      <p>222</p>
+      {{countriesData}}
+
       <hr>
-      <button @click="testBtn">click</button>
-      <button @click="testBtn2">reset</button>
+      <hr><hr><hr>
+      <p>ssss</p>
+      <Countries :countriesProp=this.countriesData />
+      <!--Countries :countriesProp=countries /-->
+
+
       <hr>
-      {{this.countries}}
+
   </div>
 </template>
 
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import Table from "../Table";
+import Countries from "../Countries";
 
 export default {
   name: "Page1",
-  components: {Table},
-  computed: mapGetters(["country", "countries"]),
-  props: ['messageProp1'],
+  components: {Countries},
+  props: ['prop1'],
   data() {
-      return {
-          m1:888,
-          m2:[333]
+    return {
+      countriesData:[1,2,3]
       }
   },
   
+  computed: mapGetters(["countries"]),
   methods: {
-    ...mapActions(["testAction", "getAllCountriesAction"]),
+    ...mapActions(["fetchCountries"]),
 
-    hello() {
-      console.log("hello():" + this.country.name);
+    btn1() {
+      console.log('btn1')
+      this.fetchCountries()
+      this.init()
     },
-    testBtn() {
-      this.getAllCountriesAction();
-      console.log(this.countries)
-      this.m2 = this.countries
+    btn2() {
+      console.log('btn2')
+      this.countriesData = [1,1,1]
     },
-    testBtn2() {
-      this.countries = null
-    },
-    getCountries(){
-      this.getAllCountriesAction();
-    },
-    setCountries(){
-      this.m2 = this.countries
+    init(){
+      console.log('init')
+      this.countriesData = this.countries
+      //this.prop1 = this.countries
     }
   },
 
   created() {
-    
+    this.init()
   }
 };
 </script>
