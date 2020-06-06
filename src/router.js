@@ -11,9 +11,9 @@ export default new Router({
       component: () => import('./components/pages/Home.vue')
     },
     {
-      path: '/page1',
-      name: 'Page1',
-      component: () => import('./components/pages/Page1.vue')
+      path: '/countries',
+      name: 'CountriesPage',
+      component: () => import('./components/pages/CountriesPage.vue')
     }
   ]
 })

@@ -1,24 +1,22 @@
 <template>
   <div id="countries">
-    <h5>Countries component</h5>
     
     <div v-for="country in countriesProp" :key="country.name">
-        <Country v-bind:countryProp="country" /> 
+        <Country v-bind:countryProp="country" :detailedProp="detailedProp" /> 
     </div> 
-
     
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+//import { mapGetters, mapActions } from "vuex";
 import Country from "./Country";
 
 export default {
   name: "Countries",
-  props: ['countriesProp'],
+  props: ['countriesProp', 'detailedProp'],
   components: { Country },
-    computed: mapGetters(["countries"]),
+    //computed: mapGetters(["countries", "detailed"]),
   data(){
       return {
           msg: [5,5,5]
@@ -26,7 +24,7 @@ export default {
   },
   
   methods: {
-    ...mapActions([]),
+    //...mapActions([]),
     test() {
       
     }

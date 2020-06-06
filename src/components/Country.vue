@@ -1,12 +1,25 @@
 <template>
   <div id="countryComponent">
-    <div :v-if="this.$store.detailed===false">
-      short
+    
+    <div class="content">
+      
+      <div v-if="detailedProp===false">
+        <p>{{this.toUpper(countryProp.name)}}</p>
+      </div>
+
+      <div v-else>
+        <p>{{this.toUpper(countryProp.name)}}</p>
+        <p>code: {{countryProp.code}}</p>
+        <p>location: {{countryProp.location}}</p>
+        <p>statistic: {{countryProp.statistic}}</p>
+      </div>
+    
     </div>
 
-    <div :v-if="this.$store.detailed===true">
-        long
-
+    <div class="btns">
+      <button>edit</button>
+      <button>delete</button>
+      <button>save</button>
     </div>
 
 
@@ -21,16 +34,18 @@
 export default {
   name: "Country",
   //components: {Countries},
-  props: ['countryProp'],
+  props: ['countryProp', 'detailedProp'],
   data() {
     return {
       }
   },
   
-  //computed: mapGetters(["countries"]),
+  //computed: mapGetters(["detailed"]),
   methods: {
     //...mapActions(["fetchCountries"]),
-
+    toUpper(str){
+      return str.toUpperCase()  
+    }
   },
 
   created() {
@@ -43,7 +58,20 @@ export default {
     background: rgb(222, 210, 255);
     border:1px solid #ccc;
     border-radius: 5px;
-    width: 70vw;
+    width: 80vw;
     margin: 0.5em;
+    display: grid;
+    grid-template-columns: 80% 20%;
+  }
+  .content{
+    padding: 0.5em;
+  }
+  .btns{
+    background: #ccc;
+    padding: 0.5em;
+  }
+  button{
+    width: 100%;
+    margin: 0.5em auto 0.5em auto;
   }
 </style>

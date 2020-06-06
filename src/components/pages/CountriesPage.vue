@@ -1,20 +1,17 @@
 <template>
-  <div id="page1Component">
-      <h1>Hello from Page1    </h1>
+  <div id="countriesPageComponent">
+
+      <div class=box>
+        <h1>Countries</h1>
       
-      <hr>
-      <button @click="shortView()" :disabled="detailed===false" >short</button>
-      <button @click="detailedView()" :disabled="detailed===true">detailed</button>
+      <div class=viewBtns>
+        <button @click="shortView()" :disabled="detailed===false" >short</button>
+        <button @click="detailedView()" :disabled="detailed===true">detailed</button>
+      </div>
+      
+      <Countries :countriesProp=countries :detailedProp=detailed />
 
-      <hr>
-      <p>detailed: {{this.detailed}}</p>
-      <hr>
-
-      <!--Countries /-->
-      <Countries :countriesProp=countries />
-
-
-      <hr>
+      </div>
 
   </div>
 </template>
@@ -41,12 +38,12 @@ export default {
       'fetchCountriesDetailed']),
 
     shortView(){
-      this.fetchCountries()
       this.$store.commit('setDetailed', false)
+      this.fetchCountries()
     },
     detailedView(){
-      this.fetchCountriesDetailed()
       this.$store.commit('setDetailed', true)
+      this.fetchCountriesDetailed()
     },
     init(){
       if(this.detailed){
@@ -64,8 +61,26 @@ export default {
 </script>
 
 <style scoped>
+  .box{
+    width: 80vw;
+    margin:auto;
+    padding: 0.5em;
+  }
+  h1{
+    text-align: center;
+  }
+  .viewBtns{
+    display: inline;
+    margin-left: 0.5em;
+  }
+  .viewBtns > button {
+    background: #ccc;
+    width: 10%;
+    height: 2em;
+    margin-right: 0.3em;
+  }
   .active{
     background:  rgb(107, 223, 126);
-    
   }
+  
 </style>
