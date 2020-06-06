@@ -1,23 +1,10 @@
 <template>
-  <div id="page1">
+  <div id="page1Component">
       <h1>Hello from Page1    </h1>
       <button @click="fetchCountries">btn1</button>
       <button @click=btn2()>btn2</button>
       <button @click=init()>init</button>
-      <!--p>CountriesData: {{countriesData}}</p-->
-      <hr>
-      <p>111</p>
-      {{prop1}}
-      
-      
-      <hr>
-      <p>222</p>
-      {{countriesData}}
-
-      <hr>
-      <hr><hr><hr>
-      <p>ssss</p>
-      <Countries :countriesProp=this.countriesData />
+      <Countries />
       <!--Countries :countriesProp=countries /-->
 
 
