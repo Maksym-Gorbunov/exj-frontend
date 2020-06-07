@@ -8,10 +8,12 @@ Vue.use(Vuex);
 
 import dataStore from './modules/dataStore.js';
 import userStore from './modules/userStore.js';
+import apiStore from './modules/apiStore.js'
 
 
 export default new Vuex.Store({
   modules: {
+    apiStore,
     dataStore,
     userStore
   }

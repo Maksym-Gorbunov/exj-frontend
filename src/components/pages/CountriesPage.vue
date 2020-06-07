@@ -1,5 +1,5 @@
 <template>
-  <div id="countriesPageComponent">
+  <div id="countriesPage">
 
       <div class=box>
         <h1>Countries</h1>
