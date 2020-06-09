@@ -4,9 +4,10 @@
     <Header/>
 
     <div class="box">
-      <h2>Total</h2>
+      <h2>Total Statistic</h2>
       <div class="content-box">
         
+
         <table class="table">
           <thead>
             <tr>
@@ -30,6 +31,8 @@
           </tbody>  
         </table> 
 
+
+
         
 
 
@@ -51,7 +54,7 @@ import Header from "../Header"
 import Diagram1 from "../Diagram1"
 
 export default {
-  name: "HomePage",
+  name: "TotalPage",
   components: {Header, Diagram1},
   props: ["myProp"],
   data() {
@@ -61,14 +64,14 @@ export default {
   computed: mapGetters(["total"]),
   methods: {
     ...mapActions([
-      "getLatestTotalsAction"
+      "latestTotalsAction"
     ]),
 
   },
   
 
   created() {
-    this.getLatestTotalsAction()
+    this.latestTotalsAction()
   }
 };
 </script>

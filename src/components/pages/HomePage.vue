@@ -4,72 +4,10 @@
     <Header/>
 
     <div class="box">
-      <h2>API</h2>
+      <h2>Home</h2>
       <div class="content-box">
         
-        <div class="request-box">
-          
-          <div class="covid-19-logo">
-            <a href="https://rapidapi.com/Gramzivi/api/covid-19-data"  target="_blank">
-              <img
-              :src="getImgUrl()"
-              onerror="this.onerror=null; this.src='http://maxcoder.pro/img/temp/default.png'"
-              alt=""
-            />
-            <span>COVID-19</span>
-            </a>
-          </div>
-          
-          <div class="processing"><p v-if="processing===true" >processing...</p></div>
-          
-          <ul>
-            <b>Help</b>
-            <li @click="getListOfCountries">
-              <span class="request-type">GET</span>getListOfCountries
-            </li>
-            <li @click="OpenAPIDocumentation">
-              <span class="request-type">GET</span>OpenAPIDocumentation
-            </li>
-          </ul>
-          <ul>
-            <b>Total</b>
-            <li @click="getLatestTotals">
-              <span class="request-type">GET</span>getLatestTotals
-            </li>
-            <li @click="getDailyReportTotals">
-              <span class="request-type">GET</span>getDailyReportTotals
-            </li>
-          </ul>
-          <ul>
-            <b>Country</b>
-            <li @click="getDailyReportByCountryName">
-              <span class="request-type">GET</span>getDailyReportByCountryName
-            </li>
-            <li @click="getLatestAllCountries">
-              <span class="request-type">GET</span>getLatestAllCountries <i class="fas fa-lock"></i>
-            </li>
-            <li @click="getLatestCountryDataByCode">
-              <span class="request-type">GET</span>getLatestCountryDataByCode
-            </li>
-            <li @click="getLatestCountryDataByName">
-              <span class="request-type">GET</span>getLatestCountryDataByName
-            </li>
-            <li @click="getDailyReportByCountryCode">
-              <span class="request-type">GET</span>getDailyReportByCountryCode
-            </li>
-            <li @click="getDailyReportAllCountries">
-              <span class="request-type">GET</span>getDailyReportAllCountries <i class="fas fa-lock"></i>
-            </li>
-          </ul>
-        </div>
-
-        <div class="response-box">
-          <div class="response-description">
-            <p>Description:  {{apiResponse.description}}</p>
-          </div>
-          <hr>
-          <div class="response-data"><p>{{apiResponse.data}}</p></div>
-        </div>
+        
       
       </div>
     </div>

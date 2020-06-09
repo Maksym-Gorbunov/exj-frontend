@@ -11,6 +11,11 @@ export default new Router({
       component: () => import('./components/pages/HomePage.vue')
     },
     {
+      path: '/api',
+      name: 'ApiPage',
+      component: () => import('./components/pages/ApiPage.vue')
+    },
+    {
       path: '/countries',
       name: 'CountriesPage',
       component: () => import('./components/pages/CountriesPage.vue')
@@ -19,6 +24,11 @@ export default new Router({
       path: '/total',
       name: 'TotalPage',
       component: () => import('./components/pages/TotalPage.vue')
+    },
+    {
+      path: '/daily',
+      name: 'DailyPage',
+      component: () => import('./components/pages/DailyPage.vue')
     }
   ]
 })

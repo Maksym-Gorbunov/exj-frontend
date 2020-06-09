@@ -3,8 +3,10 @@
     <div class="left"><a href="/">logo</a></div>
     <div class="center">
         <a href="/">HOME</a>
+        <a href="/#/api">API</a>
         <a href="/#/countries">COUNTRIES</a>
         <a href="/#/total">TOTAL</a>
+        <a href="/#/daily">DAILY</a>
     </div>
     <div class="right">right</div>
   </div>
