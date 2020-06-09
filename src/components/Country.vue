@@ -3,24 +3,30 @@
     
     <div class="content">
       
-      <div v-if="detailedProp===false">
+      <div v-if="detailedProp===false" class="short">
         <p>{{this.toUpper(countryProp.name)}}</p>
       </div>
 
-      <div v-else>
-        <p>{{this.toUpper(countryProp.name)}}</p>
-        <p>code: {{countryProp.code}}</p>
-        <p>location: {{countryProp.location}}</p>
-        <p>statistic: {{countryProp.statistic}}</p>
+      <div v-else class=detailed>
+      
+        <div>
+          <p>{{this.toUpper(countryProp.name)}}</p>
+          <p>code: {{countryProp.code}}</p>
+          <p>location: {{countryProp.location}}</p>
+          <p>statistic: {{countryProp.statistic}}</p>
+        </div>
+    
+        <div class="btns">
+          <button>edit</button>
+          <button v-on:click="deleteCountryEmit">delete</button>
+          <button>save</button>
+        </div>
+      
       </div>
     
     </div>
 
-    <div class="btns">
-      <button>edit</button>
-      <button>delete</button>
-      <button>save</button>
-    </div>
+    
 
 
   </div>
@@ -28,7 +34,7 @@
 
 
 <script>
-//import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 //import Countries from "../Countries";
 
 export default {
@@ -45,6 +51,9 @@ export default {
     //...mapActions(["fetchCountries"]),
     toUpper(str){
       return str.toUpperCase()  
+    },
+    deleteCountryEmit(){
+      this.$parent.$emit('deleteCountryEmit', this.countryProp.id)
     }
   },
 
@@ -60,11 +69,15 @@ export default {
     border-radius: 5px;
     width: 80vw;
     margin: 0.5em;
-    display: grid;
-    grid-template-columns: 80% 20%;
   }
   .content{
     padding: 0.5em;
+  }
+  .detailed{
+    display: grid;
+    grid-template-columns: 80% 20%;
+  }
+  .short{
   }
   .btns{
     background: #ccc;

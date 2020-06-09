@@ -2,7 +2,9 @@
   <div id="countries">
     
     <div v-for="country in countriesProp" :key="country.name">
-        <Country v-bind:countryProp="country" :detailedProp="detailedProp" /> 
+        <Country v-bind:countryProp="country" :detailedProp="detailedProp" 
+        
+        /> 
     </div> 
     
   </div>

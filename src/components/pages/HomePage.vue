@@ -1,5 +1,8 @@
 <template>
   <div id="homePage">
+
+    <Header/>
+
     <div class="box">
       <h2>API</h2>
       <div class="content-box">
@@ -75,9 +78,11 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Header from "../Header"
 
 export default {
   name: "HomePage",
+  components: {Header},
   props: ["myProp"],
   data() {
     return {};

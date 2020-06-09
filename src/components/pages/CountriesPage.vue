@@ -1,6 +1,8 @@
 <template>
   <div id="countriesPage">
 
+      <Header/>
+
       <div class=box>
         <h1>Countries</h1>
       
@@ -9,7 +11,7 @@
         <button @click="detailedView()" :disabled="detailed===true">detailed</button>
       </div>
       
-      <Countries :countriesProp=countries :detailedProp=detailed />
+      <Countries :countriesProp=countries :detailedProp=detailed v-on:deleteCountryEmit="deleteCountry($event)" />
 
       </div>
 
@@ -20,10 +22,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Countries from "../Countries";
+import Header from "../Header"
 
 export default {
   name: "Page1",
-  components: {Countries},
+  components: {Countries, Header},
   props: ['prop1'],
   data() {
     return {
@@ -35,7 +38,9 @@ export default {
   methods: {
     ...mapActions(
       ['fetchCountries', 
-      'fetchCountriesDetailed']),
+      'fetchCountriesDetailed',
+      'deleteCountryAction'  
+      ]),
 
     shortView(){
       this.$store.commit('setDetailed', false)
@@ -44,6 +49,11 @@ export default {
     detailedView(){
       this.$store.commit('setDetailed', true)
       this.fetchCountriesDetailed()
+    },
+    deleteCountry(id){
+      console.log(id)
+      this.deleteCountryAction(id)
+
     },
     init(){
       if(this.detailed){

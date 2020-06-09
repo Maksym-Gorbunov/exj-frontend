@@ -14,6 +14,11 @@ export default new Router({
       path: '/countries',
       name: 'CountriesPage',
       component: () => import('./components/pages/CountriesPage.vue')
+    },
+    {
+      path: '/total',
+      name: 'TotalPage',
+      component: () => import('./components/pages/TotalPage.vue')
     }
   ]
 })
