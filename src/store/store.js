@@ -6,7 +6,7 @@ Vue.use(VueAxios, axios)
 Vue.use(Vuex);
 
 
-import dataStore from './modules/dataStore.js';
+import countriesStore from './modules/countriesStore.js';
 import userStore from './modules/userStore.js';
 import apiStore from './modules/apiStore.js'
 
@@ -14,7 +14,7 @@ import apiStore from './modules/apiStore.js'
 export default new Vuex.Store({
   modules: {
     apiStore,
-    dataStore,
+    countriesStore,
     userStore
   }
 });

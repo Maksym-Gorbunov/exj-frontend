@@ -4,52 +4,101 @@
     <Header/>
 
     <div class="box">
-      <h2>Daily Total Statisti</h2>
+      <h2>Daily Total Statistic</h2>
       <div class="content-box">
         
-        <div class="dailyTotals">
-
+        <div class="dailyByDate">
           <div>
             <table class="table">
               <thead>
                 <tr>
                   <td>confirmed</td>
                   <td>recovered</td>
-                  <td>active</td>
                   <td>deaths</td>
+                  <td>active</td>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{{dailyTotal.confirmed}}</td>
-                  <td>{{dailyTotal.recovered}}</td>
-                  <td>{{dailyTotal.deaths}}</td>
-                  <td>{{dailyTotal.active}}</td>
+                  <td>{{dailyByDate.confirmed}}</td>
+                  <td>{{dailyByDate.recovered}}</td>
+                  <td>{{dailyByDate.deaths}}</td>
+                  <td>{{dailyByDate.active}}</td>
                 </tr>  
               </tbody>  
             </table> 
           </div>
-          
           <div>
-            <form @submit="getDailyTotals">
+            <form @submit="getDailyByDate">
               <label for="date">date:</label><br>
-              <input type="text" id="date" name="date" v-model="date">
+              <input type="text" id="date" name="date1" v-model="date">
               <input type="submit" value="Submit">
             </form> 
           </div>
-
         </div>
 
 
-        
+        <div class="dailyByName">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <td>confirmed</td>
+                  <td>recovered</td>
+                  <td>deaths</td>
+                  <td>active</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{dailyByName.confirmed}}</td>
+                  <td>{{dailyByName.recovered}}</td>
+                  <td>{{dailyByName.deaths}}</td>
+                  <td>{{dailyByName.active}}</td>
+                </tr>  
+              </tbody>  
+            </table> 
+          </div>
+          <div>
+            <form @submit="getDailyByName">
+              <label for="name">country:</label><br>
+              <input type="text" id="name" name="name" v-model="name">
+              <input type="submit" value="Submit">
+            </form> 
+          </div>
+        </div>
 
+        <div class="dailyByCode">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <td>confirmed</td>
+                  <td>recovered</td>
+                  <td>deaths</td>
+                  <td>active</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{dailyByCode.confirmed}}</td>
+                  <td>{{dailyByCode.recovered}}</td>
+                  <td>{{dailyByCode.deaths}}</td>
+                  <td>{{dailyByCode.active}}</td>
+                </tr>  
+              </tbody>  
+            </table> 
+          </div>
+          <div>
+            <form @submit="getDailyByCode">
+              <label for="code">code:</label><br>
+              <input type="text" id="code" name="code" v-model="code">
+              <input type="submit" value="Submit">
+            </form> 
+          </div>
+        </div>
 
         <!--Diagram1/-->
-
-        
-          
-          
-            
       
       </div>
     </div>
@@ -67,30 +116,48 @@ export default {
   props: ["myProp"],
   data() {
     return {
-      date: "2020-04-01"
+      date: "2020-04-01",
+      name: "USA",
+      code: "Af" 
     };
   },
 
-  computed: mapGetters(["dailyTotal"]),
+  computed: mapGetters(["dailyByDate", "dailyByName", "dailyByCode"]),
   methods: {
     ...mapActions([
-      "dailyTotalsAction"
+      "dailyByDateAction",
+      "dailyByNameAction",
+      "dailyByCodeAction"
     ]),
-    getDailyTotals(e){
+    getDailyByDate(e){
       e.preventDefault()
-      this.dailyTotalsAction(this.date)   //call action
+      this.dailyByDateAction(this.date)   
     },
-    init(){
-      let date = "2020-04-01"
-      this.dailyTotalsAction(date)
-      //this.$store.dispatch('dailyTotalAction', date);
+    getDailyByName(e){
+      e.preventDefault()
+      this.dailyByNameAction(this.name)   
+    },
+    getDailyByCode(e){
+      e.preventDefault()
+      this.dailyByCodeAction(this.code)   
+    },
+    
+
+    initTotal(){
+      //this.dailyTotalsAction(date)
+    },
+    initByDateAndName(){
+      //this.dailyCountryByDateAndNameAction(this.form2)
     }
   },
   created() {
-    this.init()
+    //this.initTotal()
+    //this.initByDateAndName()
   }
 };
 </script>
+
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -116,12 +183,31 @@ table, th, td {
 td {
   padding: 0.5em;
 }
-.dailyTotals{
+.dailyByDate{
   display: grid;
   grid-template-columns: 60% 40%;
   background: #ccc;
+  margin-bottom: 1em;
 }
-.dailyTotals form{
+.dailyByDate form{
   margin-top: 2em;
+}
+.dailyByName{
+  display: grid;
+  grid-template-columns: 60% 40%;
+  background: #ccc;
+  margin-bottom: 1em;
+}
+.dailyByName form{
+  margin-top: 1.5em;
+}
+.dailyByCode{
+  display: grid;
+  grid-template-columns: 60% 40%;
+  background: #ccc;
+  margin-bottom: 1em;
+}
+.dailyByCode form{
+  margin-top: 1.5em;
 }
 </style>
