@@ -15,7 +15,7 @@
                   <td>confirmed</td>
                   <td>recovered</td>
                   <td>deaths</td>
-                  <td>active</td>
+                  <td>critical</td>
                 </tr>
               </thead>
               <tbody>
@@ -46,7 +46,7 @@
                   <td>confirmed</td>
                   <td>recovered</td>
                   <td>deaths</td>
-                  <td>active</td>
+                  <td>critical</td>
                 </tr>
               </thead>
               <tbody>
@@ -54,7 +54,7 @@
                   <td>{{dailyByName.confirmed}}</td>
                   <td>{{dailyByName.recovered}}</td>
                   <td>{{dailyByName.deaths}}</td>
-                  <td>{{dailyByName.active}}</td>
+                  <td>{{dailyByName.critical}}</td>
                 </tr>  
               </tbody>  
             </table> 
@@ -76,7 +76,7 @@
                   <td>confirmed</td>
                   <td>recovered</td>
                   <td>deaths</td>
-                  <td>active</td>
+                  <td>critical</td>
                 </tr>
               </thead>
               <tbody>
@@ -84,7 +84,7 @@
                   <td>{{dailyByCode.confirmed}}</td>
                   <td>{{dailyByCode.recovered}}</td>
                   <td>{{dailyByCode.deaths}}</td>
-                  <td>{{dailyByCode.active}}</td>
+                  <td>{{dailyByCode.critical}}</td>
                 </tr>  
               </tbody>  
             </table> 
@@ -98,6 +98,7 @@
           </div>
         </div>
 
+    
         <!--Diagram1/-->
       
       </div>

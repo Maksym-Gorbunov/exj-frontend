@@ -7,6 +7,7 @@
         <a href="/#/countries">COUNTRIES</a>
         <a href="/#/total">TOTAL</a>
         <a href="/#/daily">DAILY</a>
+        <a href="/#/country">COUNTRY</a>
     </div>
     <div class="right">right</div>
   </div>

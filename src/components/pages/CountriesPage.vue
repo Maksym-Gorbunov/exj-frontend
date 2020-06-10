@@ -25,7 +25,7 @@ import Countries from "../Countries";
 import Header from "../Header"
 
 export default {
-  name: "Page1",
+  name: "CountriesPage",
   components: {Countries, Header},
   props: ['prop1'],
   data() {

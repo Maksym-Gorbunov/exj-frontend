@@ -29,6 +29,11 @@ export default new Router({
       path: '/daily',
       name: 'DailyPage',
       component: () => import('./components/pages/DailyPage.vue')
+    },
+    {
+      path: '/country',
+      name: 'CountryPage',
+      component: () => import('./components/pages/CountryPage.vue')
     }
   ]
 })
