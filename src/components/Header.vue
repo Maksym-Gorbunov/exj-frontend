@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <div class="left"><a href="/">logo</a></div>
+    <div class="left"><a href="/"><i class="fas fa-virus fa-lg"></i></a></div>
     <div class="center">
         <a href="/">HOME</a>
         <a href="/#/api">API</a>
@@ -9,7 +9,11 @@
         <a href="/#/daily">DAILY</a>
         <a href="/#/country">COUNTRY</a>
     </div>
-    <div class="right">right</div>
+    <div class="right">
+      <i class="far fa-user user"></i> 
+      <span class="user">{{this.$store.getters.user.email}}</span>
+      <i class="fas fa-bars"></i>
+    </div>
   </div>
 </template>
 
@@ -39,9 +43,8 @@ export default {
 
 <style scoped>
   #header{
-    background: rgb(158, 240, 243);
+    background: var(--main-green);
     border:1px solid #ccc;
-    border-radius: 5px;
     width: 100vw;
     height: 2em;
     display: grid;
@@ -53,14 +56,26 @@ export default {
       line-height: 2em;
       color: rgb(111, 100, 121);
   }
-  .left{
-
+  .left i{
+    color: var(--main-red);
   }
   .center{
     text-align: center;
   }
   .right{
-
+    line-height: 2em;
+    padding-right: 1em;
+    color: rgb(66, 66, 70);
+    background: var(--main-green);
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
   }
-
+  .right i {
+    line-height: 2em;
+    text-align: center;
+  }
+  .user{
+    color:  var(--main-red);
+  }
+  
 </style>

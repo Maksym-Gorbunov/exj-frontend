@@ -1,17 +1,20 @@
 <template>
   <div id="countriesPage">
-
       <Header/>
-
       <div class=box>
-        <h1>Countries</h1>
-      
-      <div class=viewBtns>
-        <button @click="shortView()" :disabled="detailed===false" >short</button>
-        <button @click="detailedView()" :disabled="detailed===true">detailed</button>
-      </div>
-      
-      <Countries :countriesProp=countries :detailedProp=detailed v-on:deleteCountryEmit="deleteCountry($event)" />
+        <h2>Countries</h2>
+          <div class="content">
+          
+            <p class="counter">Total: {{countries.length}}</p>
+
+            <div class=viewBtns>
+              <button @click="shortView()" :disabled="detailed===false" v-bind:class="{ clicked: detailed === false }">short</button>
+              <button @click="detailedView()" :disabled="detailed===true" v-bind:class="{ clicked: detailed === true }">detailed </button>
+            </div>
+          
+                      
+          <Countries :countriesProp=countries :detailedProp=detailed v-on:deleteCountryEmit="deleteCountry($event)" />
+        </div>
 
       </div>
 
@@ -71,26 +74,34 @@ export default {
 </script>
 
 <style scoped>
-  .box{
-    width: 80vw;
-    margin:auto;
-    padding: 0.5em;
-  }
-  h1{
-    text-align: center;
-  }
+  #countriesPage{
+  background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.box {
+  width: 80vw;
+  min-height: 100vh;
+  margin: auto;
+  padding: 0.5em;
+  background: rgb(255, 255, 255);
+}
+.content{
+  width: 100%;
+  margin-left: 7em;
+}
   .viewBtns{
     display: inline;
-    margin-left: 0.5em;
   }
-  .viewBtns > button {
-    background: #ccc;
-    width: 10%;
-    height: 2em;
-    margin-right: 0.3em;
+  .clicked{
+    background:#ccc;
   }
-  .active{
-    background:  rgb(107, 223, 126);
-  }
+  .counter{
+    color: rgb(94, 91, 91);
+    font-size: small;
+    border: none;
+    padding-left: 0;
+  }  
+  
   
 </style>

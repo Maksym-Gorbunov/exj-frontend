@@ -1,10 +1,10 @@
 <template>
-  <div id="homePage">
+  <div id="apiPage">
 
     <Header/>
 
     <div class="box">
-      <h2>API</h2>
+      <h2>Api</h2>
       <div class="content-box">
         
         <div class="request-box">
@@ -115,15 +115,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#apiPage{
+  background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .box {
   width: 80vw;
   min-height: 100vh;
   margin: auto;
   padding: 0.5em;
+  background: rgb(255, 255, 255);
 }
-h2{
-  text-align: center;
-}
+
 .content-box {
   min-height: 90vh;
   display: grid;

@@ -4,6 +4,10 @@ import userStore from "./userStore";
 /* eslint-enable */
 // eslint-disable-next-line no-unused-vars
 
+const host = "http://localhost:7000"
+//const host = "http://13.53.139.53:7000"
+
+
 const state = {
   countries: [],
   detailed: false,
@@ -26,20 +30,20 @@ const getters = {
 
 const actions = {
   async fetchCountries({ commit }) {
-    const response = await axios.get("http://localhost:7000/covid19/country")
+    const response = await axios.get(`${host}/covid19/country`)
     commit("setCountries", response.data)
   },
   async fetchCountriesDetailed({ commit }) {
-    const response = await axios.get("http://localhost:7000/covid19/country/*")
+    const response = await axios.get(`${host}/covid19/country/*`)
     commit("setCountries", response.data)
   },
   async deleteCountryAction({ commit }, id) {
     axios({
       method: 'delete',
-      url: "http://localhost:7000/covid19/country/100",
+      url: `${host}/covid19/country/100`,
       config: {
           headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:7000/*',
+            'Access-Control-Allow-Origin': `${host}/*`,
             'origin':"*"
           }
       }
@@ -47,19 +51,19 @@ const actions = {
     commit("deleteCounty", id)
   },
   async latestTotalsAction({ commit }) {
-    const response = await axios.get(`http://localhost:7000/covid19/api/total/*`)
+    const response = await axios.get(`${host}/covid19/api/total/*`)
     commit("setTotal", response.data[0])
   },
   async dailyByDateAction({ commit }, date) {
-    const response = await axios.get(`http://localhost:7000/covid19/api/countries/date/${date}/name/any/*`)
+    const response = await axios.get(`${host}/covid19/api/countries/date/${date}/name/any/*`)
     commit("setDailyByDate", response.data[0])
   },
   async dailyByNameAction({ commit }, name) {
-    const response = await axios.get(`http://localhost:7000/covid19/api/countries//name/${name}/*`)
+    const response = await axios.get(`${host}/covid19/api/countries//name/${name}/*`)
     commit("setDailyByName", response.data[0])
   },
   async dailyByCodeAction({ commit }, code) {
-    const response = await axios.get(`http://localhost:7000/covid19/api/countries/code/${code}/*`)
+    const response = await axios.get(`${host}/covid19/api/countries/code/${code}/*`)
     commit("setDailyByCode", response.data[0])
   },
   setStatus({commit}, status){

@@ -4,12 +4,8 @@
     <Header/>
 
     <div class="box">
-      <h2>Home</h2>
-      <div class="content-box">
-        
-        
+      <h1>HOME</h1>
       
-      </div>
     </div>
   </div>
 </template>
@@ -53,14 +49,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#homePage{
+  background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .box {
   width: 80vw;
   min-height: 100vh;
   margin: auto;
   padding: 0.5em;
 }
-h2{
+h1{
   text-align: center;
+  font-size: 4em;
+  color: rgb(245, 141, 115);
+  margin-top: 5em;
 }
 .content-box {
   min-height: 90vh;

@@ -4,7 +4,7 @@
     <Header/>
 
     <div class="box">
-      <h2>Daily Total Statistic</h2>
+      <h2>Daily Statistics</h2>
       <div class="content-box">
         
         <div class="dailyByDate">
@@ -93,7 +93,7 @@
             <form @submit="getDailyByCode">
               <label for="code">code:</label><br>
               <input type="text" id="code" name="code" v-model="code">
-              <input type="submit" value="Submit">
+              <input class="btn" type="submit" value="Submit">
             </form> 
           </div>
         </div>
@@ -162,53 +162,56 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#dailyPage{
+  background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .box {
   width: 80vw;
   min-height: 100vh;
   margin: auto;
   padding: 0.5em;
-}
-h2{
-  color: bisque;
-  text-align: center;
+  background: rgb(255,255,255);
 }
 
-table{
-  margin: 2em auto;
-  text-align: center;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-td {
-  padding: 0.5em;
-}
+
 .dailyByDate{
+  width: 70%;
+  margin: 1em auto;
   display: grid;
   grid-template-columns: 60% 40%;
-  background: #ccc;
+  background: rgb(158, 243, 196);
   margin-bottom: 1em;
 }
 .dailyByDate form{
   margin-top: 2em;
 }
 .dailyByName{
+  width: 70%;
+  margin: 1em auto;
   display: grid;
   grid-template-columns: 60% 40%;
-  background: #ccc;
+   background: rgb(158, 243, 196);
   margin-bottom: 1em;
 }
 .dailyByName form{
   margin-top: 1.5em;
 }
 .dailyByCode{
+  width: 70%;
+  margin: 1em auto;
   display: grid;
   grid-template-columns: 60% 40%;
-  background: #ccc;
+   background: rgb(158, 243, 196);
   margin-bottom: 1em;
 }
 .dailyByCode form{
   margin-top: 1.5em;
+}
+label{
+  padding-left: 0.5em;
+  font-size: small;
+  color: var(--main-dark-grey);
 }
 </style>
