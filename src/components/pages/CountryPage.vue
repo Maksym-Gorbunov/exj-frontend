@@ -133,7 +133,7 @@ export default {
   grid-template-columns: 70% 30%;
 }
 .form{
-  background: oldlace;
+  background: rgb(212, 212, 211);
   margin-top: 1em;
   padding: 1em;
   height: 14em;
@@ -147,7 +147,7 @@ form input[type="submit"]{
   color: rgb(136, 136, 136);
 }
 .country{
-  background: rgb(226, 225, 225);
+  background: rgb(248, 197, 131);
   width: 70%;
   margin: 1em auto;
   padding: 1em;
@@ -163,7 +163,7 @@ form input[type="submit"]{
   li{
   }  
   .location{
-    width: 30%;
+    width: 50%;
     margin: 0.5em 0 0.5em 2em ;
     background: var(--main-blue);
     border: 1px solid white;

@@ -4,7 +4,7 @@
     <Header/>
 
     <div class="box">
-      <h2>Api</h2>
+      <h3>Api</h3>
       <div class="content-box">
         
         <div class="request-box">
@@ -20,7 +20,9 @@
             </a>
           </div>
           
-          <div class="processing"><p v-if="processing===true" >processing...</p></div>
+          <div class="processing">
+            <p v-if="processing===true" >processing...</p>
+          </div>
           
           <ul>
             <b>Help</b>
@@ -117,17 +119,24 @@ export default {
 <style scoped>
 #apiPage{
   background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-  background-repeat: no-repeat;
   background-size: cover;
+}
+p{
+  border: none;
 }
 .box {
   width: 80vw;
   min-height: 100vh;
   margin: auto;
-  padding: 0.5em;
   background: rgb(255, 255, 255);
 }
-
+h3{
+  background: white;
+  line-height: 4em;
+  text-align: center;
+  color: var(--main-blue);
+  text-transform: uppercase;
+}
 .content-box {
   min-height: 90vh;
   display: grid;
@@ -169,7 +178,15 @@ ul {
   margin: 0 5px 0 2px;
 }
 .processing{
-  min-height: 2em;
+  display: block;
+  height: 1em;
+}
+.processing p{
+  padding: 0;
+  margin: 0;
+  font-size: small;
+  line-height: 1em;
+  border: none;
 }
 .covid-19-logo span {
   color:rgb(224, 41, 41);
@@ -180,7 +197,7 @@ ul {
 }
 .response-description{
   padding: 0.5em;
-  color: rgba(0, 0, 255, 0.61);
+  color: rgb(82, 80, 80);
 }
 .response-data{
   padding: 0.5em;

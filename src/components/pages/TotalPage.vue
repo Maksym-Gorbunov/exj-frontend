@@ -36,11 +36,10 @@
         </div>
 
 
-
+        <div class="char">
+    
+        </div>
         
-
-
-        <Diagram1/>
 
         
           
@@ -55,11 +54,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Header from "../Header"
-import Diagram1 from "../Diagram1"
+
 
 export default {
   name: "TotalPage",
-  components: {Header, Diagram1},
+  components: {Header},
   props: ["myProp"],
   data() {
     return {};
@@ -113,5 +112,7 @@ table, th, td {
 td {
   padding: 0.5em;
 }
+
+
 
 </style>
